@@ -15,7 +15,7 @@ def main():
         print("\tTLP: \"T\" TCP, \"U\" UDP")
         print("\tIP: IPv4 Address of target to scan")
         print("\tPorts: Port (80) or range of ports to scan (1-80)")
-
+        return
 
     TLP = sys.argv[1]
     dstIP = sys.argv[2]

@@ -23,14 +23,14 @@ def main():
 
     #checks if arguments provided are valid
     if len(sys.argv) != 2:
-        print "Usage: sudo python", sys.argv[0], "[ip address]"
+        print ("Usage: sudo python", sys.argv[0], "[ip address]")
     dst = sys.argv[1]
     #regular expressions for IP address
     ipPattern = re.compile('^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$')
 
     #check if destination IP matches with the Regex
     if not ipPattern.match(dst):
-        print "Err: Invalid IP\n\tUsage: sudo python", sys.argv[0], "[ip address]"
+        print ("Err: Invalid IP\n\tUsage: sudo python", sys.argv[0], "[ip address]")
         return 0;
 
 
@@ -59,11 +59,11 @@ def main():
 
         #Unreachable if no answer is received
         if len(ans) == 0:
-            print i, "\t****"
+            print (i, "\t****")
         else:
             #print the src ip of the returning ICMP
             retIP = str(ans[0][1].getlayer(IP).src)
-            print i, "\t", retIP
+            print (i, "\t", retIP)
             #if icmp host unreachable is received, break.
             if ans[0][1].getlayer(ICMP).code == 3:
                 break
